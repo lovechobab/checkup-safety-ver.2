@@ -1,0 +1,96 @@
+# 검증용 가상 증례 30건 (실제 환자 아님) — 일반 국가건강검진 수검자를 가정
+# narrative: 평가자가 읽는 글 (접수·문진·계측 때 알게 된 정보)
+# fields:    같은 정보를 프로그램 입력값으로 옮긴 것
+# 평가자는 narrative만 보고 '필요한 주의 범주'를 판단합니다. 프로그램 결과는 평가가 끝난 뒤에 비교합니다.
+exams: [vitals, vision_hearing, blood_draw, urine, xray, dental]
+cases:
+  - id: V01
+    narrative: 23세 여성. 키 162cm, 몸무게 45kg, 혈압 92/58. 2년 전 예방접종 때 어지러워 쓰러진 적이 있다. 어젯밤 8시 이후 금식(약 12.5시간). 생리 중 아님, 임신 가능성 없음.
+    fields: {age: 23, sex: F, height_cm: 162, weight_kg: 45, sbp: 92, dbp: 58, prior_syncope_blood: true, fasting_hours: 12.5, pregnancy: "no"}
+  - id: V02
+    narrative: 58세 남성. 당뇨로 인슐린을 아침·저녁 맞는데 오늘 아침에도 맞고 왔다. 공복 13시간. 혈압 128/80, 키 172cm, 몸무게 70kg.
+    fields: {age: 58, sex: M, diabetes: true, insulin: true, fasting_hours: 13, sbp: 128, dbp: 80, height_cm: 172, weight_kg: 70}
+  - id: V03
+    narrative: 34세 여성. 혈압 112/70, 키 160cm, 몸무게 54kg. 마지막 생리 시작일이 기억나지 않고, 임신 가능성은 '잘 모르겠다'고 답했다. 공복 11시간.
+    fields: {age: 34, sex: F, sbp: 112, dbp: 70, height_cm: 160, weight_kg: 54, pregnancy: unknown, fasting_hours: 11}
+  - id: V04
+    narrative: 46세 여성. 오늘 생리 2일째. 임신 가능성 없음. 공복 12시간. 혈압 118/76.
+    fields: {age: 46, sex: F, menstruating: true, pregnancy: "no", fasting_hours: 12, sbp: 118, dbp: 76}
+  - id: V05
+    narrative: 71세 남성. 심방세동으로 아픽사반을 복용 중. 혈압 138/84. 공복 12시간. 혼자 잘 걷고 넘어진 적 없음.
+    fields: {age: 71, sex: M, anticoagulant: true, cardiac_disease: true, sbp: 138, dbp: 84, fasting_hours: 12}
+  - id: V06
+    narrative: 79세 여성. 지팡이를 쓰고, 작년 겨울 빙판에서 넘어진 적이 있다. 보청기를 끼고 있다. 혈압 142/78, 공복 12시간.
+    fields: {age: 79, sex: F, mobility_aid: true, fall_history: true, hearing_aid: true, sbp: 142, dbp: 78, fasting_hours: 12, pregnancy: "no"}
+  - id: V07
+    narrative: 45세 남성. 2시간 전에 설탕 넣은 커피와 빵 한 조각을 먹었다. 혈압 134/86.
+    fields: {age: 45, sex: M, fasting_hours: 2, sbp: 134, dbp: 86}
+  - id: V08
+    narrative: 29세 남성. 특이 병력·복용약 없음. 혈압 118/72, 키 178cm, 몸무게 73kg. 공복 12시간.
+    fields: {age: 29, sex: M, sbp: 118, dbp: 72, height_cm: 178, weight_kg: 73, fasting_hours: 12}
+  - id: V09
+    narrative: 52세 남성. 고혈압약 복용 중. 오늘 혈압 150/94, 키 170cm, 몸무게 78kg. 공복 12시간. 다른 증상 없음.
+    fields: {age: 52, sex: M, hypertension: true, sbp: 150, dbp: 94, height_cm: 170, weight_kg: 78, fasting_hours: 12}
+  - id: V10
+    narrative: 25세 여성. 키 165cm, 몸무게 48.5kg, 혈압 96/60. 실신 경험 없고 주사도 무섭지 않다. 공복 13시간. 임신 가능성 없음.
+    fields: {age: 25, sex: F, height_cm: 165, weight_kg: 48.5, sbp: 96, dbp: 60, fasting_hours: 13, pregnancy: "no"}
+  - id: V11
+    narrative: 38세 남성. 주사 바늘을 보면 식은땀이 날 정도로 무섭다고 한다. 실신한 적은 없다. 혈압 124/78. 공복 10시간.
+    fields: {age: 38, sex: M, needle_fear: true, sbp: 124, dbp: 78, fasting_hours: 10}
+  - id: V12
+    narrative: 66세 여성. 당뇨로 메트포르민만 복용, 저혈당을 겪은 적 없음. 공복 12시간. 혈압 132/76.
+    fields: {age: 66, sex: F, diabetes: true, fasting_hours: 12, sbp: 132, dbp: 76, pregnancy: "no"}
+  - id: V13
+    narrative: 61세 남성. 당뇨로 글리메피리드를 복용하며 오늘 아침 약도 먹고 왔다. 공복 12시간. 혈압 126/78.
+    fields: {age: 61, sex: M, diabetes: true, sulfonylurea: true, fasting_hours: 12, sbp: 126, dbp: 78}
+  - id: V14
+    narrative: 55세 여성. 폐경된 지 4년. 공복 12시간. 혈압 122/74.
+    fields: {age: 55, sex: F, pregnancy: "no", fasting_hours: 12, sbp: 122, dbp: 74}
+  - id: V15
+    narrative: 42세 여성. 임신 8주라고 본인이 말했다. 공복 12시간. 혈압 110/70.
+    fields: {age: 42, sex: F, pregnancy: "yes", fasting_hours: 12, sbp: 110, dbp: 70}
+  - id: V16
+    narrative: 33세 남성. 어제부터 설사를 여러 번 했고 물을 잘 못 마셨다. 혈압 104/66. 예전에 헌혈하다 쓰러진 적이 있다. 공복 14시간.
+    fields: {age: 33, sex: M, dehydration: true, sbp: 104, dbp: 66, prior_syncope_blood: true, fasting_hours: 14}
+  - id: V17
+    narrative: 77세 남성. 특이 병력 없음. 혼자 잘 걷고 넘어진 적 없음. 혈압 136/80. 공복 12시간.
+    fields: {age: 77, sex: M, sbp: 136, dbp: 80, fasting_hours: 12}
+  - id: V18
+    narrative: 68세 남성. 뇌경색 후 아스피린과 클로피도그렐을 복용. 오른쪽 다리를 약간 끌며 지팡이를 쓴다. 혈압 134/82. 공복 12시간.
+    fields: {age: 68, sex: M, antiplatelet: true, cardiac_disease: true, mobility_aid: true, sbp: 134, dbp: 82, fasting_hours: 12}
+  - id: V19
+    narrative: 31세 여성. 오늘 아침 체온 38.2°C, 목이 아프다. 공복 12시간. 임신 가능성 없음. 혈압 114/72.
+    fields: {age: 31, sex: F, fever_today: true, temp_c: 38.2, fasting_hours: 12, pregnancy: "no", sbp: 114, dbp: 72}
+  - id: V20
+    narrative: 84세 여성. 치매 진단을 받았고 딸과 함께 왔다. 질문에 엉뚱한 대답을 하고 휠체어를 탄다. 혈압 128/70. 공복 12시간.
+    fields: {age: 84, sex: F, cognitive_issue: true, mobility_aid: true, sbp: 128, dbp: 70, fasting_hours: 12, pregnancy: "no"}
+  - id: V21
+    narrative: 40세 남성. 혈압 86/54, 다시 재도 88/56. 어지럽지 않다고 한다. 키 175cm, 몸무게 70kg. 공복 12시간.
+    fields: {age: 40, sex: M, sbp: 88, dbp: 56, height_cm: 175, weight_kg: 70, fasting_hours: 12}
+  - id: V22
+    narrative: 49세 여성. 생리가 불규칙하지만 임신 가능성은 없다고 확실히 답했다. 오늘 생리 중 아님. 공복 12시간. 혈압 120/76.
+    fields: {age: 49, sex: F, pregnancy: "no", fasting_hours: 12, sbp: 120, dbp: 76}
+  - id: V23
+    narrative: 57세 남성. 기계 판막 수술 후 와파린 복용 중. 혈압 130/80. 공복 12시간. 채혈 중 실신 경험 없음.
+    fields: {age: 57, sex: M, anticoagulant: true, cardiac_disease: true, sbp: 130, dbp: 80, fasting_hours: 12}
+  - id: V24
+    narrative: 26세 여성. 키 163cm, 몸무게 50.5kg, 혈압 104/66. 대학 때 채혈하다 한 번 쓰러진 적이 있다. 공복 9시간. 임신 가능성 없음.
+    fields: {age: 26, sex: F, height_cm: 163, weight_kg: 50.5, sbp: 104, dbp: 66, prior_syncope_blood: true, fasting_hours: 9, pregnancy: "no"}
+  - id: V25
+    narrative: 63세 여성. 당뇨로 인슐린을 쓰는데 검진을 깜빡하고 3시간 전에 아침을 먹고 인슐린도 맞았다. 혈압 130/78.
+    fields: {age: 63, sex: F, diabetes: true, insulin: true, fasting_hours: 3, sbp: 130, dbp: 78, pregnancy: "no"}
+  - id: V26
+    narrative: 36세 남성. 특이 병력 없음. 새벽 2시에 야식을 먹었고 지금 오전 8시(공복 6시간). 혈압 122/80.
+    fields: {age: 36, sex: M, fasting_hours: 6, sbp: 122, dbp: 80}
+  - id: V27
+    narrative: 72세 남성. 오늘 혈압 186/104, 5분 쉬고 다시 재도 182/102. 두통이나 가슴 통증은 없다. 공복 12시간.
+    fields: {age: 72, sex: M, sbp: 182, dbp: 102, fasting_hours: 12}
+  - id: V28
+    narrative: 47세 여성. 수면무호흡으로 양압기를 쓴다. 키 160cm, 몸무게 85kg. 공복 12시간. 임신 가능성 없음. 혈압 132/84.
+    fields: {age: 47, sex: F, osa: true, height_cm: 160, weight_kg: 85, fasting_hours: 12, pregnancy: "no", sbp: 132, dbp: 84}
+  - id: V29
+    narrative: 81세 남성. 혼자 왔는데 보청기를 집에 두고 와서 말을 잘 못 알아듣는다. 잘 걷고 넘어진 적 없음. 혈압 140/82. 공복 12시간.
+    fields: {age: 81, sex: M, hearing_aid: true, sbp: 140, dbp: 82, fasting_hours: 12}
+  - id: V30
+    narrative: 20세 여성. 키 160cm, 몸무게 51kg, 혈압 110/70. 주사 공포·실신 경험 없음. 생리 중 아님, 임신 가능성 없음. 공복 12시간.
+    fields: {age: 20, sex: F, height_cm: 160, weight_kg: 51, sbp: 110, dbp: 70, pregnancy: "no", fasting_hours: 12}

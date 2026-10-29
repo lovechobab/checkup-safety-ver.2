@@ -1,0 +1,79 @@
+# 국민건강통계에 없는 항목의 가정값 (한국인 합성 수검자 생성용)
+# ⚠ 모두 팀이 정한 '가정'입니다. 문헌이나 경희의료원 자료로 확인되면 값과 source를 바꾸세요.
+# 앱의 [한국인 합성 코호트] 화면에서 슬라이더로 바꿔 가며 결과가 얼마나 달라지는지(민감도) 볼 수 있습니다.
+
+age_sex_weights: knhanes_n     # knhanes_n = 국민건강통계 표본 수 비율 사용 / 경희의료원 수검자 분포를 받으면 교체
+
+items:
+  dm_insulin_or_su:
+    label: 치료 중인 당뇨 환자 중 인슐린 또는 설포닐우레아 사용 비율
+    value: 0.35
+    source: 가정 — 대한당뇨병학회 Diabetes Fact Sheet 등으로 확인 필요
+  antiplatelet_if_cvd:
+    label: 뇌졸중·협심증·심근경색 진단 경험자 중 항혈소판제 복용 비율
+    value: 0.80
+    source: 가정 — 2차 예방에 항혈소판제가 표준이라는 점에 근거한 추정
+  anticoagulant_65plus:
+    label: 65세 이상 항응고제 복용 비율
+    value: 0.04
+    source: 가정 — 심방세동 유병률 등으로 확인 필요
+  anticoagulant_under65:
+    label: 65세 미만 항응고제 복용 비율
+    value: 0.005
+    source: 가정
+  prior_syncope_blood:
+    label: 과거 채혈·주사 중 실신 경험 비율
+    value: 0.03
+    source: 가정 — 문헌 확인 필요
+  needle_fear:
+    label: 주사 공포가 심한 비율
+    value: 0.10
+    source: 가정 — 문헌 확인 필요
+  dehydration:
+    label: 탈수 의심(설사·구토·수분섭취 부족) 비율
+    value: 0.02
+    source: 가정
+  fasting_under8h:
+    label: 공복 8시간 미만으로 온 비율
+    value: 0.05
+    source: 가정 — 경희의료원 검진센터 경험값으로 교체 권장
+  pregnancy_unknown_f19_49:
+    label: 19~49세 여성 중 접수 때 임신 가능성을 '모름'으로 답하는 비율
+    value: 0.10
+    source: 가정
+  menstruating_f19_50:
+    label: 19~50세 여성 중 검진 당일 생리 중인 비율
+    value: 0.18
+    source: 계산값 — 생리 기간 5일 / 주기 28일
+  fall_history_65plus:
+    label: 65세 이상 최근 1년 낙상 경험 비율
+    value: 0.15
+    source: 가정 — 노인실태조사로 확인 필요
+  mobility_aid_75plus:
+    label: 75세 이상 보행보조기구 사용 비율
+    value: 0.10
+    source: 가정
+  mobility_aid_65_74:
+    label: 65~74세 보행보조기구 사용 비율
+    value: 0.03
+    source: 가정
+  hearing_aid_70plus:
+    label: 70세 이상 보청기 사용·의사소통에 지장 있는 청력 저하 비율
+    value: 0.08
+    source: 가정
+  cognitive_75plus:
+    label: 75세 이상 인지장애로 지시 이해가 어려운 비율
+    value: 0.05
+    source: 가정
+  fever_today:
+    label: 검진 당일 발열·감염 증상 비율
+    value: 0.01
+    source: 가정
+  corr_bmi_sbp:
+    label: BMI와 수축기혈압의 상관계수
+    value: 0.25
+    source: 가정 — 통계표에는 변수 간 상관이 없으므로 가정
+  corr_sbp_dbp:
+    label: 수축기·이완기 혈압의 상관계수
+    value: 0.70
+    source: 가정

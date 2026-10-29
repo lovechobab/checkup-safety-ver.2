@@ -1,0 +1,57 @@
+# 시연용 가상 시나리오 (실제 환자 아님). expect = 반드시 떠야 하는 경고, absent = 뜨면 안 되는 경고.
+# order_first = 추천 순서에서 신체계측 다음에 와야 하는 검사 (선택)
+# tests/test_engine.py 가 이 파일로 회귀 테스트를 돌린다.
+cases:
+  - name: "저체중·저혈압 + 과거 채혈 실신"
+    exams: [vitals, vision_hearing, blood_draw, urine, xray, dental]
+    fields: {age: 23, sex: F, height_cm: 162, weight_kg: 45, sbp: 88, dbp: 56, prior_syncope_blood: true, pregnancy: "no", fasting_hours: 12}
+    expect: [A1]
+    absent: [A2, A3, A4, E2]
+
+  - name: "인슐린 사용 당뇨 + 공복 채혈"
+    exams: [vitals, vision_hearing, blood_draw, urine, xray, dental]
+    fields: {age: 58, sex: M, diabetes: true, insulin: true, height_cm: 170, weight_kg: 72, sbp: 132, dbp: 80, fasting_hours: 13}
+    expect: [B1]
+    absent: [B3, Q1]
+    order_second: blood_draw
+
+  - name: "가임기 여성, 임신 가능성 모름 + 생리 중"
+    exams: [vitals, vision_hearing, blood_draw, urine, xray, dental]
+    fields: {age: 31, sex: F, pregnancy: unknown, menstruating: true, fasting_hours: 12, sbp: 112, dbp: 70}
+    expect: [E2, Q2]
+    absent: [E1]
+
+  - name: "항응고제(아픽사반) 복용 71세"
+    exams: [vitals, vision_hearing, blood_draw, urine, xray, dental]
+    fields: {age: 71, sex: M, anticoagulant: true, fasting_hours: 12, sbp: 138, dbp: 84}
+    expect: [A5, Q3]
+    absent: [F1, F2]
+
+  - name: "79세, 지팡이·낙상 경험·보청기"
+    exams: [vitals, vision_hearing, blood_draw, urine, xray, dental]
+    fields: {age: 79, sex: F, mobility_aid: true, fall_history: true, hearing_aid: true, fasting_hours: 12, sbp: 142, dbp: 78, pregnancy: "no"}
+    expect: [F1, I3]
+    absent: [F2]
+
+  - name: "아침 식사 후 내원 (공복 2시간)"
+    exams: [vitals, vision_hearing, blood_draw, urine, xray, dental]
+    fields: {age: 45, sex: M, fasting_hours: 2, sbp: 134, dbp: 86}
+    expect: [Q1]
+    absent: [Q0]
+
+  - name: "혈압 186/104"
+    exams: [vitals, vision_hearing, blood_draw, urine, xray, dental]
+    fields: {age: 72, sex: M, sbp: 186, dbp: 104, fasting_hours: 12}
+    expect: [P1]
+
+  - name: "위험 없음 (대조군)"
+    exams: [vitals, vision_hearing, blood_draw, urine, xray, dental]
+    fields: {age: 40, sex: M, height_cm: 175, weight_kg: 70, sbp: 118, dbp: 76, fasting_hours: 12}
+    expect: []
+    absent: [A1, A2, A3, A4, B1, B2, F1, F2, Q0, Q1, P1, E2]
+
+  - name: "[확장 모듈] eGFR 25 + 조영 CT"
+    exams: [vitals, blood_draw, xray, ct_contrast]
+    fields: {age: 78, sex: M, ckd: true, egfr: 25, sbp: 128, dbp: 74, fasting_hours: 12}
+    expect: [C1, F2]
+    absent: [C2]
